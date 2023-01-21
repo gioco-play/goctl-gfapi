@@ -1,4 +1,5 @@
 ```
+ # 版號更新時務必使用 1.0.1 三個數字組成
  # 安裝
  go install github.com/gioco-play/goctl-gfapi@latest 
  
