@@ -33,6 +33,7 @@ var (
 )
 
 func init() {
+
 	goCmd.Flags().StringVar(&gogenx.VarStringDir, "dir", "", "The target dir")
 	goCmd.Flags().StringVar(&gogenx.VarStringAPI, "api", "", "The api file")
 	goCmd.Flags().StringVar(&gogenx.VarStringHome, "home", "", "The goctl home path of "+
