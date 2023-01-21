@@ -18,7 +18,7 @@ const (
 
 var (
 	rootCmd = &cobra.Command{
-		Use:   "goctl",
+		Use:   "goctl-gfapi",
 		Short: "A cli tool to generate go-zero code",
 		Long: "A cli tool to generate api, zrpc, model code\n\n" +
 			"GitHub: https://github.com/zeromicro/go-zero\n" +
