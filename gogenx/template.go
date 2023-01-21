@@ -15,6 +15,7 @@ const (
 	handlerTemplateFile         = "handler.tpl"
 	logicTemplateFile           = "logic.tpl"
 	mainTemplateFile            = "main.tpl"
+	makefileTemplateFile        = "makefile.tpl"
 	middlewareImplementCodeFile = "middleware.tpl"
 	routesTemplateFile          = "routes.tpl"
 	routesAdditionTemplateFile  = "route-addition.tpl"
@@ -29,6 +30,7 @@ var templates = map[string]string{
 	handlerTemplateFile:         handlerTemplate,
 	logicTemplateFile:           logicTemplate,
 	mainTemplateFile:            mainTemplate,
+	makefileTemplateFile:        makefileTemplate,
 	middlewareImplementCodeFile: middlewareImplementCode,
 	routesTemplateFile:          routesTemplate,
 	routesAdditionTemplateFile:  routesAdditionTemplate,

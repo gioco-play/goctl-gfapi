@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+    "log"
 	"github.com/joho/godotenv"
     "github.com/spf13/viper"
 
@@ -23,7 +24,7 @@ func main() {
     }
 
 	var c config.Config
-	conf.MustLoad(*configFile, &c)
+	conf.MustLoad(*configFile, &c, conf.UseEnv())
     // 配置額外參數
     viper.SetConfigName(".env")
     viper.SetConfigType("env")

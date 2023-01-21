@@ -15,6 +15,9 @@ import (
 //go:embed main.tpl
 var mainTemplate string
 
+//go:embed makefile.tpl
+var makefileTemplate string
+
 func genMain(dir, rootPkg string, cfg *config.Config, api *spec.ApiSpec) error {
 	name := strings.ToLower(api.Service.Name)
 	filename, err := format.FileNamingFormat(cfg.NamingFormat, name)
@@ -25,6 +28,11 @@ func genMain(dir, rootPkg string, cfg *config.Config, api *spec.ApiSpec) error {
 	configName := filename
 	if strings.HasSuffix(filename, "-api") {
 		filename = strings.ReplaceAll(filename, "-api", "")
+	}
+
+	err = genMakefile(dir, rootPkg, filename)
+	if err != nil {
+		return err
 	}
 
 	return genFile(fileGenConfig{
@@ -50,4 +58,19 @@ func genMainImports(parentPkg string) string {
 	imports = append(imports, fmt.Sprintf("\"%s/core/conf\"", vars.ProjectOpenSourceURL))
 	imports = append(imports, fmt.Sprintf("\"%s/rest\"", vars.ProjectOpenSourceURL))
 	return strings.Join(imports, "\n\t")
+}
+
+func genMakefile(dir, rootPkg, configName string) error {
+	return genFile(fileGenConfig{
+		dir:             dir,
+		subdir:          "",
+		filename:        "makefile",
+		templateName:    "makefileTemplate",
+		category:        category,
+		templateFile:    makefileTemplateFile,
+		builtinTemplate: makefileTemplate,
+		data: map[string]string{
+			"serviceName": configName,
+		},
+	})
 }

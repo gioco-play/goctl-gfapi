@@ -39,6 +39,7 @@ func genServiceContext(dir, rootPkg string, cfg *config.Config, api *spec.ApiSpe
 		configImport += "\n\t\"" + pathx.JoinPackages(rootPkg, middlewareDir) + "\""
 		configImport += fmt.Sprintf("\n\t\"%s/rest\"", vars.ProjectOpenSourceURL)
 	}
+	configImport += fmt.Sprintf("\n\tztrace \"%s/core/trace\"", vars.ProjectOpenSourceURL)
 
 	return genFile(fileGenConfig{
 		dir:             dir,

@@ -15,6 +15,7 @@ Telemetry:
 Postgres:
   Host: ${DB_HOST}
   Port: ${DB_PORT}
+  SlavePort: ${DB_SLAVE_PORT}
   UserName: ${DB_USERNAME}
   Password: ${DB_PASSWORD}
   DBName: ${DB_DATABASE}
