@@ -92,6 +92,7 @@ func DoGenProject(apiFile, dir, style string) error {
 	}
 
 	logx.Must(genEtc(dir, cfg, api))
+	logx.Must(genEnv(dir, cfg, api))
 	logx.Must(genConfig(dir, cfg, api))
 	logx.Must(genMain(dir, rootPkg, cfg, api))
 	logx.Must(genServiceContext(dir, rootPkg, cfg, api))
