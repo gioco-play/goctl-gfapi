@@ -20,11 +20,11 @@ func NewServiceContext(c {{.config}}) *ServiceContext {
 	})
 
 	// DB
-	db, err := postgrex.New(c.Postgres.Host, fmt.Sprintf("%d", c.Postgres.Port), c.Postgres.UserName,
+	db, err := postgrez.New(c.Postgres.Host, fmt.Sprintf("%d", c.Postgres.Port), c.Postgres.UserName,
 		c.Postgres.Password, c.Postgres.DBName).
 		SetTimeZone(c.Postgres.DBTimezone).
-		SetLogger(logger.Default.LogMode(logger.Info)).
-		Connect(postgrex.Pool(c.Postgres.DBPoolSize, c.Postgres.DBPoolSize, c.Postgres.DBConnMaxLifetime))
+		SetLogger(logrusz.New().SetLevel(c.Postgres.DBDebugLevel).Writer()).
+		Connect(postgrez.Pool(c.Postgres.DBPoolSize, c.Postgres.DBPoolSize, c.Postgres.DBConnMaxLifetime))
 
 	if err != nil {
 		panic(err)
