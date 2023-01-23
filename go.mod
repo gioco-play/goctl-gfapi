@@ -4,6 +4,8 @@ go 1.19
 
 require (
 	github.com/gioco-play/go-driver v0.0.0-20220318082129-e75e11628a2d
+	github.com/go-playground/universal-translator v0.18.0
+	github.com/go-playground/validator/v10 v10.11.1
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/joho/godotenv v1.4.0
 	github.com/logrusorgru/aurora v2.0.3+incompatible
@@ -12,6 +14,7 @@ require (
 	github.com/stretchr/testify v1.8.1
 	github.com/zeromicro/go-zero v1.4.3
 	github.com/zeromicro/go-zero/tools/goctl v1.4.3
+	gorm.io/gorm v1.22.3
 )
 
 require (
@@ -26,6 +29,7 @@ require (
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
 	github.com/go-logr/logr v1.2.3 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
+	github.com/go-playground/locales v0.14.0 // indirect
 	github.com/golang-jwt/jwt/v4 v4.4.3 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/pprof v0.0.0-20211214055906-6f57359322fd // indirect
@@ -43,6 +47,7 @@ require (
 	github.com/jackc/pgx/v4 v4.13.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.2 // indirect
+	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/magiconair/properties v1.8.5 // indirect
 	github.com/mattn/go-colorable v0.1.12 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
@@ -86,5 +91,4 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	gorm.io/driver/postgres v1.2.1 // indirect
-	gorm.io/gorm v1.22.3 // indirect
 )

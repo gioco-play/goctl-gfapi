@@ -101,6 +101,8 @@ func DoGenProject(apiFile, dir, style string) error {
 	logx.Must(genHandlers(dir, rootPkg, cfg, api))
 	logx.Must(genLogic(dir, rootPkg, cfg, api))
 	logx.Must(genMiddleware(dir, cfg, api))
+	logx.Must(genResp(dir, cfg, api))
+	logx.Must(genValidator(dir, cfg, api))
 
 	if err := backupAndSweep(apiFile); err != nil {
 		return err

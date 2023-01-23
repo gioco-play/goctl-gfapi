@@ -20,6 +20,8 @@ const (
 	routesTemplateFile          = "routes.tpl"
 	routesAdditionTemplateFile  = "route-addition.tpl"
 	typesTemplateFile           = "types.tpl"
+	respTemplateFile            = "response.tpl"
+	validatorTemplateFile       = "validator.tpl"
 )
 
 var templates = map[string]string{
@@ -35,6 +37,8 @@ var templates = map[string]string{
 	routesTemplateFile:          routesTemplate,
 	routesAdditionTemplateFile:  routesAdditionTemplate,
 	typesTemplateFile:           typesTemplate,
+	respTemplateFile:            respTemplate,
+	validatorTemplateFile:       validatorTemplate,
 }
 
 // Category returns the category of the api files.

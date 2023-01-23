@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/gioco-play/goctl-gfapi/gogenx"
+	"github.com/gioco-play/goctl-gfapi/tplx"
 	"github.com/logrusorgru/aurora"
 	"github.com/spf13/cobra"
 	"os"
@@ -47,7 +48,7 @@ func init() {
 		"the remote repo, it does work with --remote")
 	goCmd.Flags().StringVar(&gogenx.VarStringStyle, "style", "gozero", "The file naming format,"+
 		" see [https://github.com/zeromicro/go-zero/blob/master/tools/goctl/config/readme.md]")
-
+	rootCmd.AddCommand(tplx.Cmd)
 	rootCmd.AddCommand(goCmd)
 }
 

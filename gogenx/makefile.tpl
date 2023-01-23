@@ -2,7 +2,7 @@ lang:
 	easyi18n generate --pkg=locales ../locales ../locales/locales.go
 
 api:
-	 goctl api plugin -plugin goctl-gfapi -api {{.serviceName}}.api -dir .
+	 goctl-gfapi go -api {{.serviceName}}.api -dir . --home ../template
 
 run:
 	go run {{.serviceName}}.go -f etc/{{.serviceName}}.yaml -env etc/.env
