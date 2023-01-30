@@ -30,6 +30,11 @@ func NewServiceContext(c {{.config}}) *ServiceContext {
 		panic(err)
 	}
 
+    mongo, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(c.MongoDB.URI))
+    if err != nil {
+        panic(err)
+    }
+
 	// Tracer
 	ztrace.StartAgent(ztrace.Config{
 		Name:     c.Telemetry.Name,

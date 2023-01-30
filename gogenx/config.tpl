@@ -28,4 +28,7 @@ type Config struct {
         RedisMasterName   string
         RedisDB           int
     }
+    MongoDB struct {
+        URI string
+    }
 }

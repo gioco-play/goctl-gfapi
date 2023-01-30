@@ -24,6 +24,9 @@ Postgres:
   DBConnMaxLifetime: ${DB_CONN_MAX_LIFETIME}
   DBDebugLevel: ${DB_DEBUG_LEVEL}
 
+MongoDB:
+  URI: ${MONGODB_URI}
+
 RedisCache:
   RedisSentinelNode: ${REDIS_SENTINEL_NODE}
   RedisMasterName: ${REDIS_MASTER_NAME}

@@ -13,9 +13,17 @@ const (
 //go:embed response.tpl
 var respTemplate string
 
+//go:embed respstate.tpl
+var respstateTemplate string
+
 func genResp(dir string, cfg *config.Config, api *spec.ApiSpec) error {
 
 	service := api.Service
+
+	err := genRespState(dir, cfg, api)
+	if err != nil {
+		return err
+	}
 
 	return genFile(fileGenConfig{
 		dir:             dir,
@@ -29,4 +37,22 @@ func genResp(dir string, cfg *config.Config, api *spec.ApiSpec) error {
 			"serviceName": service.Name,
 		},
 	})
+}
+
+func genRespState(dir string, cfg *config.Config, api *spec.ApiSpec) error {
+	service := api.Service
+
+	return genFile(fileGenConfig{
+		dir:             dir,
+		subdir:          respDir,
+		filename:        "respstate.go",
+		templateName:    "respstateTemplate",
+		category:        category,
+		templateFile:    respstateTemplateFile,
+		builtinTemplate: respstateTemplate,
+		data: map[string]string{
+			"serviceName": service.Name,
+		},
+	})
+
 }
