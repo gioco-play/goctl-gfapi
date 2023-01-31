@@ -19,13 +19,11 @@ Postgres:
   UserName: ${DB_USERNAME}
   Password: ${DB_PASSWORD}
   DBName: ${DB_DATABASE}
-  DBPoolSize: ${DB_POOL_SIZE}
+  DBPoolMin: ${DB_POOL_MIN}
+  DBPoolMax: ${DB_POOL_MAX}
   DBTimezone: ${DB_TIMEZONE}
   DBConnMaxLifetime: ${DB_CONN_MAX_LIFETIME}
   DBDebugLevel: ${DB_DEBUG_LEVEL}
-
-MongoDB:
-  URI: ${MONGODB_URI}
 
 RedisCache:
   RedisSentinelNode: ${REDIS_SENTINEL_NODE}

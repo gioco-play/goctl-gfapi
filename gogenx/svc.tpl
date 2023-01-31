@@ -1,7 +1,14 @@
 package svc
 
 import (
+    "fmt"
 	{{.configImport}}
+
+	"github.com/go-redis/redis/v8"
+    "github.com/neccoys/go-driver/postgrex"
+    "gorm.io/gorm"
+    "gorm.io/gorm/logger"
+    "strings"
 )
 
 type ServiceContext struct {
@@ -20,28 +27,15 @@ func NewServiceContext(c {{.config}}) *ServiceContext {
 	})
 
 	// DB
-	db, err := postgrez.New(c.Postgres.Host, fmt.Sprintf("%d", c.Postgres.Port), c.Postgres.UserName,
-		c.Postgres.Password, c.Postgres.DBName).
-		SetTimeZone(c.Postgres.DBTimezone).
-		SetLogger(logrusz.New().SetLevel(c.Postgres.DBDebugLevel).Writer()).
-		Connect(postgrez.Pool(c.Postgres.DBPoolSize, c.Postgres.DBPoolSize, c.Postgres.DBConnMaxLifetime))
+	db, err := postgrex.New(c.Postgres.Host, fmt.Sprintf("%d", c.Postgres.Port), c.Postgres.UserName,
+        c.Postgres.Password, c.Postgres.DBName).
+        SetTimeZone(c.Postgres.DBTimezone).
+        SetLogger(logger.Default.LogMode(postgrex.Level(c.Postgres.DBDebugLevel))).
+        Connect(postgrex.Pool(c.Postgres.DBPoolMin, c.Postgres.DBPoolMax, c.Postgres.DBConnMaxLifetime))
 
 	if err != nil {
 		panic(err)
 	}
-
-    mongo, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(c.MongoDB.URI))
-    if err != nil {
-        panic(err)
-    }
-
-	// Tracer
-	ztrace.StartAgent(ztrace.Config{
-		Name:     c.Telemetry.Name,
-		Endpoint: c.Telemetry.Endpoint,
-		Batcher:  c.Telemetry.Batcher,
-		Sampler:  c.Telemetry.Sampler,
-	})
 
 	return &ServiceContext{
 		Config: c,

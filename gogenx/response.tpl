@@ -7,7 +7,7 @@ import (
 )
 
 type Body struct {
-    Code int         `json:"code"`
+    Code string         `json:"code"`
     Msg  string      `json:"msg"`
     Data interface{} `json:"data,omitempty"`
 }
@@ -15,9 +15,10 @@ type Body struct {
 func Response(w http.ResponseWriter, resp interface{}, err error) {
     var body Body
     if err != nil {
-        body.Code = -1
+        body.Code = "9999"
         body.Msg = err.Error()
     } else {
+        body.Code = "0"
         body.Msg = "OK"
         body.Data = resp
     }

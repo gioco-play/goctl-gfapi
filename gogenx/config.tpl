@@ -19,7 +19,8 @@ type Config struct {
         Password          string
         DBName            string
         DBTimezone        string
-        DBPoolSize        int
+        DBPoolMin         int
+        DBPoolMax         int
         DBConnMaxLifetime int
         DBDebugLevel      string
     }
@@ -27,8 +28,5 @@ type Config struct {
         RedisSentinelNode string
         RedisMasterName   string
         RedisDB           int
-    }
-    MongoDB struct {
-        URI string
     }
 }
