@@ -14,7 +14,7 @@ import (
 
 const contextFilename = "service_context"
 
-//go:embed svc.tpl
+//go:embed context.tpl
 var contextTemplate string
 
 func genServiceContext(dir, rootPkg string, cfg *config.Config, api *spec.ApiSpec) error {
