@@ -2,7 +2,7 @@ lang:
 	easyi18n generate --pkg=locales ../locales ../locales/locales.go
 
 api:
-	 goctl-gfapi go -api {{.serviceName}}.api -dir . --home ../template
+	 goctl-gfapi go -api {{.serviceName}}.api -dir . --remote https://github.com/gioco-play/gf-template
 
 run:
 	go run {{.serviceName}}.go -f etc/{{.serviceName}}.yaml -env etc/.env
