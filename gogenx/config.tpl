@@ -1,13 +1,11 @@
 package config
 
 import {{.authImport}}
-import {{.serviceImportStr}}
 
 type Config struct {
 	rest.RestConf
 	{{.auth}}
 	{{.jwtTrans}}
-    service.ServiceConf
     Consul struct {
         Target string
     }

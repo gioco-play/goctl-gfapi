@@ -47,7 +47,6 @@ func genConfig(dir string, cfg *config.Config, api *spec.ApiSpec) error {
 		jwtTransList = append(jwtTransList, fmt.Sprintf("%s %s", item, jwtTransTemplate))
 	}
 	authImportStr := fmt.Sprintf("\"%s/rest\"", vars.ProjectOpenSourceURL)
-	serviceImportStr := fmt.Sprintf("\"%s/core/service\"", vars.ProjectOpenSourceURL)
 
 	return genFile(fileGenConfig{
 		dir:             dir,
@@ -58,10 +57,9 @@ func genConfig(dir string, cfg *config.Config, api *spec.ApiSpec) error {
 		templateFile:    configTemplateFile,
 		builtinTemplate: configTemplate,
 		data: map[string]string{
-			"authImport":       authImportStr,
-			"serviceImportStr": serviceImportStr,
-			"auth":             strings.Join(auths, "\n"),
-			"jwtTrans":         strings.Join(jwtTransList, "\n"),
+			"authImport": authImportStr,
+			"auth":       strings.Join(auths, "\n"),
+			"jwtTrans":   strings.Join(jwtTransList, "\n"),
 		},
 	})
 }
