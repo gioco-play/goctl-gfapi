@@ -23,6 +23,7 @@ type fileGenConfig struct {
 	templateFile    string
 	builtinTemplate string
 	data            interface{}
+	ImportPackages  string
 }
 
 func genFile(c fileGenConfig) error {

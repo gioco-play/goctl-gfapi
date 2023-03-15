@@ -7,7 +7,8 @@ import (
 )
 
 const (
-	utilDir = "util"
+	utilDir   = "utils"
+	errorxDir = "utils/errorx"
 )
 
 //go:embed redislock.tpl
@@ -15,6 +16,7 @@ var redislockTemplate string
 
 //go:embed tools.tpl
 var toolsTemplate string
+var errorxTemplate string
 
 func genUtil(dir string, cfg *config.Config, api *spec.ApiSpec) error {
 	err := genRedislock(dir, cfg, api)
@@ -23,6 +25,11 @@ func genUtil(dir string, cfg *config.Config, api *spec.ApiSpec) error {
 	}
 
 	err = genTools(dir, cfg, api)
+	if err != nil {
+		return err
+	}
+
+	err = genErrorx(dir, cfg, api)
 	if err != nil {
 		return err
 	}
@@ -58,6 +65,24 @@ func genTools(dir string, cfg *config.Config, api *spec.ApiSpec) error {
 		category:        category,
 		templateFile:    toolsTemplateFile,
 		builtinTemplate: toolsTemplate,
+		data: map[string]string{
+			"serviceName": service.Name,
+		},
+	})
+}
+
+func genErrorx(dir string, cfg *config.Config, api *spec.ApiSpec) error {
+
+	service := api.Service
+
+	return genFile(fileGenConfig{
+		dir:             dir,
+		subdir:          errorxDir,
+		filename:        "errorx.go",
+		templateName:    "errorxTemplate",
+		category:        category,
+		templateFile:    errorxTemplateFile,
+		builtinTemplate: errorxTemplate,
 		data: map[string]string{
 			"serviceName": service.Name,
 		},

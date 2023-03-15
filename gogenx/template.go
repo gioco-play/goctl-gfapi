@@ -26,6 +26,7 @@ const (
 	modelsTemplateFile          = "models.tpl"
 	redislockTemplateFile       = "redislock.tpl"
 	toolsTemplateFile           = "tools.tpl"
+	errorxTemplateFile          = "errorx.tpl"
 )
 
 var templates = map[string]string{
@@ -47,6 +48,7 @@ var templates = map[string]string{
 	modelsTemplateFile:          modelsTemplate,
 	redislockTemplateFile:       redislockTemplate,
 	toolsTemplateFile:           toolsTemplate,
+	errorxTemplateFile:          errorxTemplate,
 }
 
 // Category returns the category of the api files.

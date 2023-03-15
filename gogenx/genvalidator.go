@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	validatorDir = "internal/util"
+	validatorDir = "utils"
 )
 
 //go:embed validator.tpl

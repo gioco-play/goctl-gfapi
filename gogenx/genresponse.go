@@ -2,12 +2,15 @@ package gogenx
 
 import (
 	_ "embed"
+	"fmt"
 	"github.com/zeromicro/go-zero/tools/goctl/api/spec"
 	"github.com/zeromicro/go-zero/tools/goctl/config"
+	"github.com/zeromicro/go-zero/tools/goctl/util/pathx"
+	"strings"
 )
 
 const (
-	respDir = "internal/respx"
+	respDir = "utils/respx"
 )
 
 //go:embed response.tpl
@@ -16,7 +19,7 @@ var respTemplate string
 //go:embed respstate.tpl
 var respstateTemplate string
 
-func genResp(dir string, cfg *config.Config, api *spec.ApiSpec) error {
+func genResp(dir string, rootPkg string, cfg *config.Config, api *spec.ApiSpec) error {
 
 	service := api.Service
 
@@ -34,7 +37,8 @@ func genResp(dir string, cfg *config.Config, api *spec.ApiSpec) error {
 		templateFile:    respTemplateFile,
 		builtinTemplate: respTemplate,
 		data: map[string]string{
-			"serviceName": service.Name,
+			"serviceName":    service.Name,
+			"ImportPackages": genRespImports(rootPkg),
 		},
 	})
 }
@@ -55,4 +59,12 @@ func genRespState(dir string, cfg *config.Config, api *spec.ApiSpec) error {
 		},
 	})
 
+}
+
+func genRespImports(parentPkg string) string {
+	imports := []string{
+		fmt.Sprintf("\"%s\"", pathx.JoinPackages(parentPkg, "utils/errorx")),
+	}
+
+	return strings.Join(imports, "\n\t")
 }
