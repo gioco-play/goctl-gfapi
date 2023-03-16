@@ -1,24 +1,28 @@
 package errorx
 
 type Err struct {
-	status  int
-	message string
+	Status  int
+	Message string
 }
 
 func New(status int, msgs ...string) error {
 	e := &Err{
-		status: status,
+		Status: status,
 	}
 	if len(msgs) > 0 {
-		e.message = msgs[0]
+		e.Message = msgs[0]
 	}
 	return e
 }
 
+func NewStatic(err *Err) error {
+	return err
+}
+
 func (e *Err) Error() string {
-	return e.message
+	return e.Message
 }
 
 func (e *Err) GetStatus() int {
-	return e.status
+	return e.Status
 }
