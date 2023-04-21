@@ -23,7 +23,7 @@ func genResp(dir string, rootPkg string, cfg *config.Config, api *spec.ApiSpec) 
 
 	service := api.Service
 
-	err := genRespState(dir, cfg, api)
+	err := genRespState(dir, rootPkg, api)
 	if err != nil {
 		return err
 	}
@@ -43,7 +43,7 @@ func genResp(dir string, rootPkg string, cfg *config.Config, api *spec.ApiSpec) 
 	})
 }
 
-func genRespState(dir string, cfg *config.Config, api *spec.ApiSpec) error {
+func genRespState(dir string, rootPkg string, api *spec.ApiSpec) error {
 	service := api.Service
 
 	return genFile(fileGenConfig{
@@ -55,7 +55,8 @@ func genRespState(dir string, cfg *config.Config, api *spec.ApiSpec) error {
 		templateFile:    respstateTemplateFile,
 		builtinTemplate: respstateTemplate,
 		data: map[string]string{
-			"serviceName": service.Name,
+			"serviceName":    service.Name,
+			"ImportPackages": genRespImports(rootPkg),
 		},
 	})
 
