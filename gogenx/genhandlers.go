@@ -96,10 +96,10 @@ func genHandlerImports(group spec.Group, route spec.Route, parentPkg string) str
 		fmt.Sprintf("\"%s\"", pathx.JoinPackages(parentPkg, getLogicFolderPath(group, route))),
 		fmt.Sprintf("\"%s\"", pathx.JoinPackages(parentPkg, contextDir)),
 		fmt.Sprintf("\"%s\"", pathx.JoinPackages(parentPkg, "utils/respx")),
-		fmt.Sprintf("\"%s\"", pathx.JoinPackages(parentPkg, "utils")),
 	}
+
 	if len(route.RequestTypeName()) > 0 {
-		imports = append(imports, fmt.Sprintf("\"%s\"\n", pathx.JoinPackages(parentPkg, typesDir)))
+		imports = append(imports, fmt.Sprintf("\"%s\"\n", pathx.JoinPackages(parentPkg, typesDir)), fmt.Sprintf("\"%s\"", pathx.JoinPackages(parentPkg, "utils")))
 	}
 
 	return strings.Join(imports, "\n\t")
