@@ -31,6 +31,13 @@ var (
 		Short: "Generate go files for provided api in api file",
 		RunE:  gogenx.GoCommand,
 	}
+
+	addDepCmd = &cobra.Command{
+		Use:     "add-dep",
+		Short:   "Inject a dependency into an existing service",
+		Example: "goctl-gfapi add-dep --name=transaction --remote https://github.com/gioco-play/gf-template",
+		RunE:    gogenx.AddDep,
+	}
 )
 
 func init() {
@@ -48,8 +55,21 @@ func init() {
 		"the remote repo, it does work with --remote")
 	goCmd.Flags().StringVar(&gogenx.VarStringStyle, "style", "gozero", "The file naming format,"+
 		" see [https://github.com/zeromicro/go-zero/blob/master/tools/goctl/config/readme.md]")
+
+	addDepCmd.Flags().StringVar(&gogenx.VarStringName, "name", "", "The dependency name, "+
+		"matching <template repo>/deps/<name>.tpl")
+	addDepCmd.Flags().StringVar(&gogenx.VarStringHome, "home", "", "The goctl home path "+
+		"of the template, --home and --remote cannot be set at the same time, if they are, --remote "+
+		"has higher priority")
+	addDepCmd.Flags().StringVar(&gogenx.VarStringRemote, "remote", "", "The remote git repo "+
+		"of the template, --home and --remote cannot be set at the same time, if they are, --remote"+
+		" has higher priority")
+	addDepCmd.Flags().StringVar(&gogenx.VarStringBranch, "branch", "", "The branch of "+
+		"the remote repo, it does work with --remote")
+
 	rootCmd.AddCommand(tplx.Cmd)
 	rootCmd.AddCommand(goCmd)
+	rootCmd.AddCommand(addDepCmd)
 }
 
 // Execute executes the given command

@@ -20,3 +20,9 @@
  go mod tidy
 ```
 
+# add-dep（注入依賴到既有服務）
+```shell
+ goctl-gfapi add-dep --name=transaction --remote https://github.com/gioco-play/gf-template
+```
+須在服務目錄（含 `internal/`、`etc/` 的那層）下執行。依賴定義見 [gf-template 的 deps/ 說明](https://github.com/gioco-play/gf-template#deps)。
+
