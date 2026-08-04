@@ -2,6 +2,8 @@ module github.com/gioco-play/goctl-gfapi
 
 go 1.19
 
+toolchain go1.24.4
+
 require (
 	github.com/gioco-play/go-driver v0.0.0-20220318082129-e75e11628a2d
 	github.com/go-playground/universal-translator v0.18.0
