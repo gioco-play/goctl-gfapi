@@ -476,6 +476,8 @@ github.com/fullstorydev/grpcurl v1.8.7/go.mod h1:pVtM4qe3CMoLaIzYS8uvTuDj2jVYmXq
 github.com/ghodss/yaml v1.0.0/go.mod h1:4dBDuWmgqj2HViK6kFavaiC9ZROes6MMH2rRYeMEF04=
 github.com/gioco-play/goctl-gfdep v0.0.0-20260804062227-3decbb846db5 h1:6miNeVesJaIXldHPy5tBERSYlSOil7Jy/Hk2h+D5CwU=
 github.com/gioco-play/goctl-gfdep v0.0.0-20260804062227-3decbb846db5/go.mod h1:tHv8HCvHJrLs9EEhKv3CuS9GbPZQOmZ/ZUfTuS/PW64=
+github.com/gioco-play/goctl-gfdep v0.0.0-20260805062723-77249f1c193b h1:Ma/OT63FEkB/7I7+Ce6Wg9G7lGv5MVg4LAkGeHdZ8AQ=
+github.com/gioco-play/goctl-gfdep v0.0.0-20260805062723-77249f1c193b/go.mod h1:tHv8HCvHJrLs9EEhKv3CuS9GbPZQOmZ/ZUfTuS/PW64=
 github.com/globalsign/mgo v0.0.0-20181015135952-eeefdecb41b8/go.mod h1:xkRDCp4j0OGD1HRkm4kmhM+pmpv3AKq5SU7GMg4oO/Q=
 github.com/go-gl/glfw v0.0.0-20190409004039-e6da0acd62b1/go.mod h1:vR7hzQXu2zJy9AVAgeJqvqgH9Q5CA+iKCZ2gyEVpxRU=
 github.com/go-gl/glfw/v3.3/glfw v0.0.0-20191125211704-12ad95a8df72/go.mod h1:tQ2UAYgL5IevRw8kRxooKSPJfGvJ9fJQFa0TUsXzTg8=

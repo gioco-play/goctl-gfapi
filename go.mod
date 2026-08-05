@@ -3,7 +3,7 @@ module github.com/gioco-play/goctl-gfapi
 go 1.25.0
 
 require (
-	github.com/gioco-play/goctl-gfdep v0.0.0-20260804062227-3decbb846db5
+	github.com/gioco-play/goctl-gfdep v0.0.0-20260805062723-77249f1c193b
 	github.com/logrusorgru/aurora v2.0.3+incompatible
 	github.com/spf13/cobra v1.6.1
 	github.com/stretchr/testify v1.8.1
