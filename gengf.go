@@ -35,8 +35,9 @@ var (
 	addDepCmd = &cobra.Command{
 		Use:     "add-dep",
 		Short:   "Inject a dependency into an existing service",
-		Example: "goctl-gfapi add-dep --name=transaction --remote https://github.com/gioco-play/gf-template",
-		RunE:    gogenx.AddDep,
+		Example: "goctl-gfapi add-dep --name=transaction --remote https://github.com/gioco-play/gf-template\n" +
+			"goctl-gfapi add-dep --name=notify,grabber --remote https://github.com/gioco-play/gf-template",
+		RunE: gogenx.AddDep,
 	}
 )
 

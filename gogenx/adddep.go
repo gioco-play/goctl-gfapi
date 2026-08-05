@@ -3,6 +3,7 @@ package gogenx
 import (
 	"errors"
 	"os"
+	"strings"
 
 	"github.com/gioco-play/goctl-gfdep"
 	"github.com/spf13/cobra"
@@ -41,5 +42,14 @@ func AddDep(_ *cobra.Command, _ []string) error {
 		return err
 	}
 
-	return dep.Inject(workDir, home, name)
+	for _, n := range strings.Split(name, ",") {
+		n = strings.TrimSpace(n)
+		if n == "" {
+			continue
+		}
+		if err := dep.Inject(workDir, home, n); err != nil {
+			return err
+		}
+	}
+	return nil
 }
