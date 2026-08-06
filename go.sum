@@ -478,6 +478,8 @@ github.com/gioco-play/goctl-gfdep v0.0.0-20260804062227-3decbb846db5 h1:6miNeVes
 github.com/gioco-play/goctl-gfdep v0.0.0-20260804062227-3decbb846db5/go.mod h1:tHv8HCvHJrLs9EEhKv3CuS9GbPZQOmZ/ZUfTuS/PW64=
 github.com/gioco-play/goctl-gfdep v0.0.0-20260805062723-77249f1c193b h1:Ma/OT63FEkB/7I7+Ce6Wg9G7lGv5MVg4LAkGeHdZ8AQ=
 github.com/gioco-play/goctl-gfdep v0.0.0-20260805062723-77249f1c193b/go.mod h1:tHv8HCvHJrLs9EEhKv3CuS9GbPZQOmZ/ZUfTuS/PW64=
+github.com/gioco-play/goctl-gfdep v0.0.0-20260806032240-90f1a86d3460 h1:IaUGLB+SwKXZQyV4LEmEaXnYLHSxt32M9B7i8qVE6eQ=
+github.com/gioco-play/goctl-gfdep v0.0.0-20260806032240-90f1a86d3460/go.mod h1:tHv8HCvHJrLs9EEhKv3CuS9GbPZQOmZ/ZUfTuS/PW64=
 github.com/globalsign/mgo v0.0.0-20181015135952-eeefdecb41b8/go.mod h1:xkRDCp4j0OGD1HRkm4kmhM+pmpv3AKq5SU7GMg4oO/Q=
 github.com/go-gl/glfw v0.0.0-20190409004039-e6da0acd62b1/go.mod h1:vR7hzQXu2zJy9AVAgeJqvqgH9Q5CA+iKCZ2gyEVpxRU=
 github.com/go-gl/glfw/v3.3/glfw v0.0.0-20191125211704-12ad95a8df72/go.mod h1:tQ2UAYgL5IevRw8kRxooKSPJfGvJ9fJQFa0TUsXzTg8=
