@@ -27,3 +27,10 @@
 ```
 須在服務目錄（含 `internal/`、`etc/` 的那層）下執行。`--name` 可用逗號分隔一次注入多個依賴（依序執行，非交易性）。依賴定義見 [gf-template 的 deps/ 說明](https://github.com/gioco-play/gf-template#deps)。
 
+服務目錄下的 `makefile` 已內建對應 target，也可以直接用：
+```shell
+ make add-dep NAME=transaction
+```
+`REMOTE` 預設為 `https://github.com/gioco-play/gf-template`，可用 `make add-dep NAME=xxx REMOTE=...` 覆寫。
+> 註：此 target 只會出現在新產生的服務；已存在的舊 `makefile` 需自行手動加上。
+
