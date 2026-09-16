@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/gioco-play/goctl-gfapi/gogenx"
+	"github.com/gioco-play/goctl-gfapi/menux"
 	"github.com/gioco-play/goctl-gfapi/tplx"
 	"github.com/logrusorgru/aurora"
 	"github.com/spf13/cobra"
@@ -71,6 +72,7 @@ func init() {
 	rootCmd.AddCommand(tplx.Cmd)
 	rootCmd.AddCommand(goCmd)
 	rootCmd.AddCommand(addDepCmd)
+	rootCmd.AddCommand(menux.Cmd)
 }
 
 // Execute executes the given command
