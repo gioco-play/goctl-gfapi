@@ -20,6 +20,15 @@
  go mod tidy
 ```
 
+# menu（互動式選單）
+```shell
+ goctl-gfapi menu
+```
+在服務的 `api/` 目錄下執行，呈現互動式選單，可選擇產生 API 服務或注入依賴。
+- 範本固定取自 `gioco-play/gf-template`，無需 `--home`、`--remote` 或 `--branch` 選項
+- 執行前顯示等價命令供確認
+- 給人用的互動方式；自動化請直接用 `go` 或 `add-dep` 子命令
+
 # add-dep（注入依賴到既有服務）
 ```shell
  goctl-gfapi add-dep --name=transaction --remote https://github.com/gioco-play/gf-template
